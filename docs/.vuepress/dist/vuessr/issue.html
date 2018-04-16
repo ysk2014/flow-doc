@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>前端工作流文档 | 优化方案</title>
+    <meta name="description" content="基于 Webpack 零配置的前端工作流生态">
+    
+    <link rel="preload" href="/assets/css/16.styles.be755a89.css" as="style"><link rel="preload" href="/assets/js/app.85822044.js" as="script"><link rel="preload" href="/assets/js/0.1353bd93.js" as="script"><link rel="prefetch" href="/assets/js/9.953c3114.js"><link rel="prefetch" href="/assets/js/1.3f3d84f9.js"><link rel="prefetch" href="/assets/js/2.d290042a.js"><link rel="prefetch" href="/assets/js/3.57f1c35b.js"><link rel="prefetch" href="/assets/js/4.31e4b891.js"><link rel="prefetch" href="/assets/js/5.948cdbcc.js"><link rel="prefetch" href="/assets/js/6.50890080.js"><link rel="prefetch" href="/assets/js/7.6413cbdb.js"><link rel="prefetch" href="/assets/js/8.f88c666a.js"><link rel="prefetch" href="/assets/js/10.5d36f963.js"><link rel="prefetch" href="/assets/js/11.4824266f.js"><link rel="prefetch" href="/assets/js/12.36cbe908.js"><link rel="prefetch" href="/assets/js/13.a73e423f.js"><link rel="prefetch" href="/assets/js/14.d32d9da7.js"><link rel="prefetch" href="/assets/js/15.83d4f0b3.js">
+    <link rel="stylesheet" href="/assets/css/16.styles.be755a89.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="router-link-active"><!----><span class="site-name">
+      前端工作流文档
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><a href="/guide/">
+      指南
+    </a><a href="/config/">
+      配置
+    </a><a href="/vue/">
+      vue
+    </a><a href="/vuessr/" class="router-link-active">
+      vuessr
+    </a><!----></nav></div></header><div class="sidebar"><nav class="nav-links"><a href="/guide/">
+      指南
+    </a><a href="/config/">
+      配置
+    </a><a href="/vue/">
+      vue
+    </a><a href="/vuessr/" class="router-link-active">
+      vuessr
+    </a><!----></nav><ul class="sidebar-links"><li><a href="/vuessr/" class="sidebar-link">快速开始</a></li><li><a href="/vuessr/issue.html" class="active sidebar-link">优化方案</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuessr/issue.html#asyncdata函数" class="sidebar-link">asyncData函数</a></li><li class="sidebar-sub-header"><a href="/vuessr/issue.html#app-js书写规范" class="sidebar-link">app.js书写规范</a></li></ul></li><li><a href="/vuessr/flow-vue-ssr-hook.html" class="sidebar-link">flow-vue-ssr-hook</a></li><li><a href="/vuessr/flow-vue-ssr-middleware.html" class="sidebar-link">flow-vue-ssr-middleware</a></li></ul></div><div class="page"><div class="content"><h1 id="优化方案"><a href="#优化方案" aria-hidden="true" class="header-anchor">#</a> 优化方案</h1><h2 id="asyncdata函数"><a href="#asyncdata函数" aria-hidden="true" class="header-anchor">#</a> asyncData函数</h2><p>在vue同构中有统一的标准，就是用<code>asyncData</code>函数去请求API，但是<code>asyncData</code>中接收固定的参数：store，router，这样在服务端请求API时，不能随意往<code>asyncData</code>中传入参数，比如：<code>cookie</code>等。</p><p>由<code>flow-vue-ssr-hook</code>和<code>flow-vue-ssr-middleware</code>提供优化方案，可以向<code>asyncData</code>函数中传递<code>context</code>参数，该参数会默认包含一个<code>express</code>的<code>req</code>对象，用法如下：</p><p>server.js</p><pre class="language-js"><code><span class="token keyword">const</span> vueSSRMiddleware <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;@local/flow-vue-ssr-middleware&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">...</span>
+
+<span class="token keyword">let</span> instance <span class="token operator">=</span> <span class="token function">vueSSRMiddleware</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  template<span class="token punctuation">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'./src/index.template.html'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  context<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    title<span class="token punctuation">:</span> <span class="token string">'Vue 2.0'</span><span class="token punctuation">,</span> <span class="token comment">// default title</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>flow.config.js</p><pre class="language-js"><code><span class="token keyword">let</span> VueSSRHook <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;@local/flow-vue-ssr-hook&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token punctuation">.</span>
+    hooks<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">VueSSRHook</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//可以传入参数，例如：new VueSSRHook(options);</span>
+<span class="token punctuation">}</span>
+</code></pre><p>home.vue</p><pre class="language-js"><code><span class="token function">asyncData</span><span class="token punctuation">(</span>store<span class="token punctuation">,</span> router<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>title<span class="token punctuation">)</span> <span class="token comment">// 输出：Vue 2.0</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="app-js书写规范"><a href="#app-js书写规范" aria-hidden="true" class="header-anchor">#</a> app.js书写规范</h2><p>app.js文件设计成vue的js书写模式，对开发者更加友好，方便快速入门</p><pre class="language-js"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./store'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createRouter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./router'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> sync <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex-router-sync'</span>
+
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+
+  el<span class="token punctuation">:</span> <span class="token string">&quot;#app&quot;</span><span class="token punctuation">,</span>
+
+  <span class="token function">data</span><span class="token punctuation">(</span>client<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//client：是否是前端</span>
+    <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">createRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token function">sync</span><span class="token punctuation">(</span>store<span class="token punctuation">,</span> router<span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      router<span class="token punctuation">,</span>
+      store<span class="token punctuation">,</span>
+      render<span class="token punctuation">:</span> h <span class="token operator">=&gt;</span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> app<span class="token punctuation">,</span> router<span class="token punctuation">,</span> store <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">asyncDataBefore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//asyncData加载前</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token function">asyncDataComplete</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//asyncData加载后</span>
+
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/vuessr/" class="prev router-link-active">
+          快速开始
+        </a></span><span class="next"><a href="/vuessr/flow-vue-ssr-hook.html">
+          flow-vue-ssr-hook
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/0.1353bd93.js" defer></script><script src="/assets/js/app.85822044.js" defer></script>
+  </body>
+</html>

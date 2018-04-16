@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>前端工作流文档 | 开发环境配置</title>
+    <meta name="description" content="基于 Webpack 零配置的前端工作流生态">
+    
+    <link rel="preload" href="/assets/css/16.styles.be755a89.css" as="style"><link rel="preload" href="/assets/js/app.85822044.js" as="script"><link rel="preload" href="/assets/js/12.36cbe908.js" as="script"><link rel="prefetch" href="/assets/js/9.953c3114.js"><link rel="prefetch" href="/assets/js/1.3f3d84f9.js"><link rel="prefetch" href="/assets/js/2.d290042a.js"><link rel="prefetch" href="/assets/js/3.57f1c35b.js"><link rel="prefetch" href="/assets/js/4.31e4b891.js"><link rel="prefetch" href="/assets/js/5.948cdbcc.js"><link rel="prefetch" href="/assets/js/6.50890080.js"><link rel="prefetch" href="/assets/js/7.6413cbdb.js"><link rel="prefetch" href="/assets/js/8.f88c666a.js"><link rel="prefetch" href="/assets/js/0.1353bd93.js"><link rel="prefetch" href="/assets/js/10.5d36f963.js"><link rel="prefetch" href="/assets/js/11.4824266f.js"><link rel="prefetch" href="/assets/js/13.a73e423f.js"><link rel="prefetch" href="/assets/js/14.d32d9da7.js"><link rel="prefetch" href="/assets/js/15.83d4f0b3.js">
+    <link rel="stylesheet" href="/assets/css/16.styles.be755a89.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="router-link-active"><!----><span class="site-name">
+      前端工作流文档
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><a href="/guide/">
+      指南
+    </a><a href="/config/" class="router-link-active">
+      配置
+    </a><a href="/vue/">
+      vue
+    </a><a href="/vuessr/">
+      vuessr
+    </a><!----></nav></div></header><div class="sidebar"><nav class="nav-links"><a href="/guide/">
+      指南
+    </a><a href="/config/" class="router-link-active">
+      配置
+    </a><a href="/vue/">
+      vue
+    </a><a href="/vuessr/">
+      vuessr
+    </a><!----></nav><ul class="sidebar-links"><li><a href="/config/" class="sidebar-link">基础配置</a></li><li><a href="/config/dev.html" class="active sidebar-link">开发环境配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/config/dev.html#开发环境配置" class="sidebar-link">开发环境配置</a></li></ul></li><li><a href="/config/build.html" class="sidebar-link">打包环境配置</a></li><li><a href="/config/loaders.html" class="sidebar-link">loaders配置</a></li><li><a href="/config/plugins.html" class="sidebar-link">plugins配置</a></li><li><a href="/config/hooks.html" class="sidebar-link">hooks配置</a></li></ul></div><div class="page"><div class="content"><h2 id="开发环境配置"><a href="#开发环境配置" aria-hidden="true" class="header-anchor">#</a> 开发环境配置</h2><h3 id="host"><a href="#host" aria-hidden="true" class="header-anchor">#</a> host</h3><p>开发环境的host地址</p><ul><li>类型：<code>string</code></li><li>默认： <code>localhost</code></li></ul><h3 id="port"><a href="#port" aria-hidden="true" class="header-anchor">#</a> port</h3><p>开发环境的端口号，程序会自动检测端口号，并得出一个可以使用的端口</p><ul><li>类型：<code>number</code></li><li>默认：<code>3000</code></li></ul><h3 id="publicpath"><a href="#publicpath" aria-hidden="true" class="header-anchor">#</a> publicPath</h3><p>开发环境的静态资源cdn地址，默认为/</p><ul><li>类型：<code>string</code></li><li>默认：<code>/</code></li></ul><h3 id="proxy"><a href="#proxy" aria-hidden="true" class="header-anchor">#</a> proxy</h3><p>开发环境的代理, 基于webpack配置</p><ul><li>类型：<code>object</code></li></ul><h3 id="erroroverlay"><a href="#erroroverlay" aria-hidden="true" class="header-anchor">#</a> errorOverlay</h3><p>是否开启<a href="https://www.npmjs.com/package/webpack-dev-server" target="_blank" rel="noopener noreferrer">webpack-dev-server</a>的overlay配置，默认为true</p><ul><li>类型：<code>boolean</code></li><li>默认：<code>true</code></li></ul><h3 id="poll"><a href="#poll" aria-hidden="true" class="header-anchor">#</a> poll</h3><p>是否开启<a href="https://www.npmjs.com/package/webpack-dev-server" target="_blank" rel="noopener noreferrer">webpack-dev-server</a>的poll配置，默认为false</p><ul><li>类型：<code>boolean</code></li><li>默认：<code>false</code></li></ul><h3 id="devtool"><a href="#devtool" aria-hidden="true" class="header-anchor">#</a> devtool</h3><p>开发环境下webpack的devtool配置</p><ul><li>类型：<code>string</code> or <code>boolean</code></li><li>默认：<code>eval-source-map</code></li></ul><h3 id="csssourcemap"><a href="#csssourcemap" aria-hidden="true" class="header-anchor">#</a> cssSourceMap</h3><p>是否生成css的sourceMap配置，默认为false</p><ul><li>类型：<code>boolean</code></li><li>默认：<code>false</code></li></ul></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/config/" class="prev router-link-active">
+          基础配置
+        </a></span><span class="next"><a href="/config/build.html">
+          打包环境配置
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/12.36cbe908.js" defer></script><script src="/assets/js/app.85822044.js" defer></script>
+  </body>
+</html>

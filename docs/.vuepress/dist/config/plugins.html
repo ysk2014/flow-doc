@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>前端工作流文档 | plugins配置</title>
+    <meta name="description" content="基于 Webpack 零配置的前端工作流生态">
+    
+    <link rel="preload" href="/assets/css/16.styles.be755a89.css" as="style"><link rel="preload" href="/assets/js/app.85822044.js" as="script"><link rel="preload" href="/assets/js/9.953c3114.js" as="script"><link rel="prefetch" href="/assets/js/1.3f3d84f9.js"><link rel="prefetch" href="/assets/js/2.d290042a.js"><link rel="prefetch" href="/assets/js/3.57f1c35b.js"><link rel="prefetch" href="/assets/js/4.31e4b891.js"><link rel="prefetch" href="/assets/js/5.948cdbcc.js"><link rel="prefetch" href="/assets/js/6.50890080.js"><link rel="prefetch" href="/assets/js/7.6413cbdb.js"><link rel="prefetch" href="/assets/js/8.f88c666a.js"><link rel="prefetch" href="/assets/js/0.1353bd93.js"><link rel="prefetch" href="/assets/js/10.5d36f963.js"><link rel="prefetch" href="/assets/js/11.4824266f.js"><link rel="prefetch" href="/assets/js/12.36cbe908.js"><link rel="prefetch" href="/assets/js/13.a73e423f.js"><link rel="prefetch" href="/assets/js/14.d32d9da7.js"><link rel="prefetch" href="/assets/js/15.83d4f0b3.js">
+    <link rel="stylesheet" href="/assets/css/16.styles.be755a89.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="router-link-active"><!----><span class="site-name">
+      前端工作流文档
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><a href="/guide/">
+      指南
+    </a><a href="/config/" class="router-link-active">
+      配置
+    </a><a href="/vue/">
+      vue
+    </a><a href="/vuessr/">
+      vuessr
+    </a><!----></nav></div></header><div class="sidebar"><nav class="nav-links"><a href="/guide/">
+      指南
+    </a><a href="/config/" class="router-link-active">
+      配置
+    </a><a href="/vue/">
+      vue
+    </a><a href="/vuessr/">
+      vuessr
+    </a><!----></nav><ul class="sidebar-links"><li><a href="/config/" class="sidebar-link">基础配置</a></li><li><a href="/config/dev.html" class="sidebar-link">开发环境配置</a></li><li><a href="/config/build.html" class="sidebar-link">打包环境配置</a></li><li><a href="/config/loaders.html" class="sidebar-link">loaders配置</a></li><li><a href="/config/plugins.html" class="active sidebar-link">plugins配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/config/plugins.html#plugins配置" class="sidebar-link">plugins配置</a></li><li class="sidebar-sub-header"><a href="/config/plugins.html#内置plugins" class="sidebar-link">内置plugins</a></li><li class="sidebar-sub-header"><a href="/config/plugins.html#plugins-配置" class="sidebar-link">plugins 配置</a></li></ul></li><li><a href="/config/hooks.html" class="sidebar-link">hooks配置</a></li></ul></div><div class="page"><div class="content"><h2 id="plugins配置"><a href="#plugins配置" aria-hidden="true" class="header-anchor">#</a> plugins配置</h2><h2 id="内置plugins"><a href="#内置plugins" aria-hidden="true" class="header-anchor">#</a> 内置plugins</h2><p>增强配置</p><table><thead><tr><th style="text-align:center">plugins</th><th style="text-align:center">别名</th><th style="text-align:center">默认是否开启/开启环境</th></tr></thead><tbody><tr><td style="text-align:center">webpack.DefinePlugin</td><td style="text-align:center">define</td><td style="text-align:center">true</td></tr><tr><td style="text-align:center">npm-install-webpack3-plugin</td><td style="text-align:center">npm</td><td style="text-align:center">false</td></tr><tr><td style="text-align:center">webpack.NoEmitOnErrorsPlugin</td><td style="text-align:center">error</td><td style="text-align:center">true</td></tr><tr><td style="text-align:center">webpack.NamedModulesPlugin</td><td style="text-align:center">nameModule</td><td style="text-align:center">true/dev</td></tr><tr><td style="text-align:center">webpack.HashedModuleIdsPlugin</td><td style="text-align:center">hashModule</td><td style="text-align:center">true/test, prod</td></tr><tr><td style="text-align:center">webpack.HotModuleReplacementPlugin</td><td style="text-align:center">hot</td><td style="text-align:center">true/dev</td></tr><tr><td style="text-align:center">webpack.optimize.ModuleConcatenationPlugin</td><td style="text-align:center">module</td><td style="text-align:center">true/test, prod</td></tr><tr><td style="text-align:center">webpack.optimize.UglifyJsPlugin</td><td style="text-align:center">uglifyJs</td><td style="text-align:center">true/prod</td></tr><tr><td style="text-align:center">extract-text-webpack-plugin</td><td style="text-align:center">extract</td><td style="text-align:center">true/test, prod</td></tr><tr><td style="text-align:center">optimize-css-assets-webpack-plugin</td><td style="text-align:center">optimizeCSS</td><td style="text-align:center">true/test, prod</td></tr><tr><td style="text-align:center">html-webpack-plugin</td><td style="text-align:center">html</td><td style="text-align:center">true</td></tr><tr><td style="text-align:center">webpack.optimize.CommonsChunkPlugin</td><td style="text-align:center">vendor</td><td style="text-align:center">true/test, prod</td></tr><tr><td style="text-align:center">webpack.optimize.CommonsChunkPlugin</td><td style="text-align:center">manifest</td><td style="text-align:center">true/test, prod</td></tr><tr><td style="text-align:center">imagemin-webpack-plugin</td><td style="text-align:center">imagemini</td><td style="text-align:center">false/prod</td></tr><tr><td style="text-align:center">webpack-bundle-analyzer</td><td style="text-align:center">analyzer</td><td style="text-align:center">false</td></tr><tr><td style="text-align:center">copy-webpack-plugin</td><td style="text-align:center">copy</td><td style="text-align:center">false</td></tr></tbody></table><div class="danger custom-block"><p class="custom-block-title">注意：</p><p>设置imagemini和analyzer为true，需要安装其相应的插件</p></div><h2 id="plugins-配置"><a href="#plugins-配置" aria-hidden="true" class="header-anchor">#</a> plugins 配置</h2><p><code>plugins</code>配置非必须，支持 <code>Object</code> ｜ <code>Array</code>。 这里的<code>plugins</code> 是对 <code>Webpack plugins</code> 的简化和增强。建议用 <code>增强配置</code> 方式配置.</p><ul><li>兼容 Webpack 原生数组配置</li><li>[增强]支持通过别名对内置 plugin 插件的开启和禁用，以及参数配置</li><li>[增强]支持通过别名的方式添加 plugin 插件</li></ul><h3 id="内置-plugin-扩展参数统一通过-args-节点配置"><a href="#内置-plugin-扩展参数统一通过-args-节点配置" aria-hidden="true" class="header-anchor">#</a> 内置 plugin 扩展参数统一通过 args 节点配置</h3><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        $<span class="token punctuation">{</span>plugin别名<span class="token punctuation">}</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+            args<span class="token punctuation">:</span><span class="token punctuation">{</span>
+                <span class="token comment">// 具体plugin参数</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="webpack-原生数组配置举例"><a href="#webpack-原生数组配置举例" aria-hidden="true" class="header-anchor">#</a> Webpack 原生数组配置举例</h3><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token operator">...</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">[</span>
+        <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>NoEmitOnErrorsPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>HotModuleReplacementPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> 
+            label<span class="token punctuation">:</span> <span class="token string">'nameModule'</span><span class="token punctuation">,</span> <span class="token comment">// 非必需</span>
+            env<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'dev'</span><span class="token punctuation">]</span> <span class="token comment">// 非必需</span>
+            name<span class="token punctuation">:</span> webpack<span class="token punctuation">.</span><span class="token function">NamedModulesPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// name 必须</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="webpack-plugins-增强配置举例"><a href="#webpack-plugins-增强配置举例" aria-hidden="true" class="header-anchor">#</a> Webpack plugins 增强配置举例</h3><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token operator">...</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        error<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>  <span class="token comment">// webpack.NoEmitOnErrorsPlugin 已内置</span>
+        hot<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>   <span class="token comment">// webpack.HotModuleReplacementPlugin 已内置</span>
+        nameModule<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment">// webpack.NamedModulesPlugin 已内置</span>
+            env<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'dev'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><code>key:value</code> 形式, 其中 <code>key</code> 为别名, 可以自由定义, 对应解决方案内置了一些别名plugin.</p><p>比如我要添加一个全新且没有内置的 webpack-visualizer-plugin 插件, 可以这样配置如下:</p><pre class="language-js"><code><span class="token punctuation">{</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        visualizer<span class="token punctuation">:</span><span class="token punctuation">{</span>
+            env<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'dev'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 开发环境启用</span>
+            name<span class="token punctuation">:</span> webpack<span class="token operator">-</span>visualizer<span class="token operator">-</span>plugin<span class="token punctuation">,</span>
+            args<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                filename<span class="token punctuation">:</span> <span class="token string">'./visualizer.html'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>或</p><pre class="language-js"><code><span class="token keyword">var</span> Visualizer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-visualizer-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">{</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        visualizer<span class="token punctuation">:</span><span class="token punctuation">{</span>
+            env<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'dev'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 开发环境启用</span>
+            name<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Visualizer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> filename<span class="token punctuation">:</span> <span class="token string">'./visualizer.html'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="修改已经内置的压缩插件-uglifyjs-配置信息"><a href="#修改已经内置的压缩插件-uglifyjs-配置信息" aria-hidden="true" class="header-anchor">#</a> 修改已经内置的压缩插件 uglifyJs 配置信息</h3><p>自定义已经内置 plugin 插件的参数信息, 统一通过 args 配置</p><pre class="language-js"><code><span class="token punctuation">{</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        uglifyJs<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            args<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                compress<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    warnings<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                    dead_code<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                    drop_console<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                    drop_debugger<span class="token punctuation">:</span> <span class="token boolean">true</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="禁用-uglifyjs-配置"><a href="#禁用-uglifyjs-配置" aria-hidden="true" class="header-anchor">#</a> 禁用 uglifyJs 配置</h3><pre class="language-js"><code><span class="token punctuation">{</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        uglifyJs<span class="token punctuation">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="plugins-配置相属性介绍"><a href="#plugins-配置相属性介绍" aria-hidden="true" class="header-anchor">#</a> plugins 配置相属性介绍</h3><ul><li>env: 见 <code>env</code> 配置 说明, 可选, 默认全部</li><li>type: 可选值[<code>client</code>, <code>server</code>], 可选, 默认全部</li><li>enable: {Boolean/Function} 是否启用, 可选, 默认可用</li><li>name: {String/Object} 插件名称, 支持字符串或Object</li><li>args: {Object/Function} 插件参数</li></ul></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/config/loaders.html" class="prev">
+          loaders配置
+        </a></span><span class="next"><a href="/config/hooks.html">
+          hooks配置
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/9.953c3114.js" defer></script><script src="/assets/js/app.85822044.js" defer></script>
+  </body>
+</html>

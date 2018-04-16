@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>前端工作流文档 | 基础配置</title>
+    <meta name="description" content="基于 Webpack 零配置的前端工作流生态">
+    
+    <link rel="preload" href="/assets/css/16.styles.be755a89.css" as="style"><link rel="preload" href="/assets/js/app.85822044.js" as="script"><link rel="preload" href="/assets/js/14.d32d9da7.js" as="script"><link rel="prefetch" href="/assets/js/9.953c3114.js"><link rel="prefetch" href="/assets/js/1.3f3d84f9.js"><link rel="prefetch" href="/assets/js/2.d290042a.js"><link rel="prefetch" href="/assets/js/3.57f1c35b.js"><link rel="prefetch" href="/assets/js/4.31e4b891.js"><link rel="prefetch" href="/assets/js/5.948cdbcc.js"><link rel="prefetch" href="/assets/js/6.50890080.js"><link rel="prefetch" href="/assets/js/7.6413cbdb.js"><link rel="prefetch" href="/assets/js/8.f88c666a.js"><link rel="prefetch" href="/assets/js/0.1353bd93.js"><link rel="prefetch" href="/assets/js/10.5d36f963.js"><link rel="prefetch" href="/assets/js/11.4824266f.js"><link rel="prefetch" href="/assets/js/12.36cbe908.js"><link rel="prefetch" href="/assets/js/13.a73e423f.js"><link rel="prefetch" href="/assets/js/15.83d4f0b3.js">
+    <link rel="stylesheet" href="/assets/css/16.styles.be755a89.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="router-link-active"><!----><span class="site-name">
+      前端工作流文档
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><a href="/guide/">
+      指南
+    </a><a href="/config/" class="router-link-exact-active router-link-active">
+      配置
+    </a><a href="/vue/">
+      vue
+    </a><a href="/vuessr/">
+      vuessr
+    </a><!----></nav></div></header><div class="sidebar"><nav class="nav-links"><a href="/guide/">
+      指南
+    </a><a href="/config/" class="router-link-exact-active router-link-active">
+      配置
+    </a><a href="/vue/">
+      vue
+    </a><a href="/vuessr/">
+      vuessr
+    </a><!----></nav><ul class="sidebar-links"><li><a href="/config/" class="active sidebar-link">基础配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/config/#entry" class="sidebar-link">entry</a></li><li class="sidebar-sub-header"><a href="/config/#srcdir" class="sidebar-link">srcDir</a></li><li class="sidebar-sub-header"><a href="/config/#js" class="sidebar-link">js</a></li><li class="sidebar-sub-header"><a href="/config/#css" class="sidebar-link">css</a></li><li class="sidebar-sub-header"><a href="/config/#image" class="sidebar-link">image</a></li><li class="sidebar-sub-header"><a href="/config/#html" class="sidebar-link">html</a></li><li class="sidebar-sub-header"><a href="/config/#white" class="sidebar-link">white</a></li><li class="sidebar-sub-header"><a href="/config/#mode" class="sidebar-link">mode</a></li><li class="sidebar-sub-header"><a href="/config/#env" class="sidebar-link">env</a></li><li class="sidebar-sub-header"><a href="/config/#alias" class="sidebar-link">alias</a></li><li class="sidebar-sub-header"><a href="/config/#extensions" class="sidebar-link">extensions</a></li></ul></li><li><a href="/config/dev.html" class="sidebar-link">开发环境配置</a></li><li><a href="/config/build.html" class="sidebar-link">打包环境配置</a></li><li><a href="/config/loaders.html" class="sidebar-link">loaders配置</a></li><li><a href="/config/plugins.html" class="sidebar-link">plugins配置</a></li><li><a href="/config/hooks.html" class="sidebar-link">hooks配置</a></li></ul></div><div class="page"><div class="content"><h1 id="基础配置"><a href="#基础配置" aria-hidden="true" class="header-anchor">#</a> 基础配置</h1><h2 id="entry"><a href="#entry" aria-hidden="true" class="header-anchor">#</a> entry</h2><p>webpack的entry配置，但是不支持function</p><ul><li>类型： <code>array</code> 或 <code>Object</code></li></ul><p><strong>提示：</strong> 该配置在<code>mode</code>为<code>ssr</code>时候，类型必须为<code>Object</code>，且必须为如下格式:</p><pre class="language-js"><code>entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    client<span class="token punctuation">:</span> <span class="token string">&quot;./src/js/app.js&quot;</span><span class="token punctuation">,</span>
+    server<span class="token punctuation">:</span> <span class="token string">&quot;./src/server.js&quot;</span><span class="token punctuation">,</span>
+    vendor<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;vue&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;vue-router&quot;</span><span class="token punctuation">]</span> <span class="token comment">//非必选</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="srcdir"><a href="#srcdir" aria-hidden="true" class="header-anchor">#</a> srcDir</h2><p>项目源码目录</p><ul><li>类型： <code>string</code></li><li>默认： <code>./src</code></li></ul><h2 id="js"><a href="#js" aria-hidden="true" class="header-anchor">#</a> js</h2><p>js配置</p><ul><li>类型：<code>object</code></li></ul><ul><li><p>babel</p><p>babel的配置</p><ul><li>类型：<code>object</code></li><li>默认：</li></ul><pre class="language-js"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;presets&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span><span class="token string">&quot;env&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;modules&quot;</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;stage-2&quot;</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>提示：</strong> 如果配置该属性，会覆盖掉默认配置，不会合并</p></li><li><p>dirname</p><p>js输出文件夹</p><ul><li>类型：<code>string</code></li><li>默认：<code>js</code></li></ul></li><li><p>hash</p><p>js输出hash值的长度</p><ul><li>类型：<code>number</code></li><li>默认：16</li></ul></li></ul><h2 id="css"><a href="#css" aria-hidden="true" class="header-anchor">#</a> css</h2><p>css配置</p><ul><li>类型：<code>object</code></li></ul><ul><li><p>engine</p><p>css引擎，可以为[“css”,“less”,“sass”,“postcss”,“stylus”]中的任意一个或者多个</p><ul><li>类型：<code>string</code> or <code>array</code></li><li>默认：<code>css</code></li></ul></li><li><p>postcss</p><p>postcss配置</p><ul><li>类型：<code>object</code></li><li>默认：</li></ul><pre class="language-js"><code><span class="token punctuation">{</span>
+    useConfigFile<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    ident<span class="token punctuation">:</span> <span class="token string">'postcss'</span><span class="token punctuation">,</span>
+    sourceMap<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    plugins<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span>
+        <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'postcss-flexbugs-fixes'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'autoprefixer'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            browsers<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">'&gt;1%'</span><span class="token punctuation">,</span>
+                <span class="token string">'last 4 versions'</span><span class="token punctuation">,</span>
+                <span class="token string">'Firefox ESR'</span><span class="token punctuation">,</span>
+                <span class="token string">'not ie &lt; 9'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            flexbox<span class="token punctuation">:</span> <span class="token string">'no-2009'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>提示：</strong> 如果配置该属性，会覆盖掉默认配置，不会合并</p></li><li><p>dirname</p><p>css输出文件夹</p><ul><li>类型：<code>string</code></li><li>默认：<code>css</code></li></ul></li><li><p>hash</p><p>hash值的长度</p><ul><li>类型：<code>number</code></li><li>默认：16</li></ul></li></ul><h2 id="image"><a href="#image" aria-hidden="true" class="header-anchor">#</a> image</h2><p>图片配置</p><ul><li>类型：<code>object</code></li></ul><ul><li><p>limit</p><p>图片base64的限制大小,单位为Byte</p><ul><li>类型：<code>number</code></li><li>默认：<code>1000</code></li></ul></li><li><p>dirname</p><p>image输出文件夹</p><ul><li>类型：<code>string</code></li><li>默认：<code>images</code></li></ul></li><li><p>hash</p><p>hash值的长度</p><ul><li>类型：<code>number</code></li><li>默认：16</li></ul></li><li><p>imerge</p><p>是否要合图</p><ul><li>类型：<code>boolean</code></li><li>默认：<code>false</code></li></ul></li></ul><h2 id="html"><a href="#html" aria-hidden="true" class="header-anchor">#</a> html</h2><p>html配置</p><ul><li>类型：<code>object</code></li></ul><ul><li><p>template</p><p><a href="https://www.npmjs.com/package/html-webpack-plugin" target="_blank" rel="noopener noreferrer">html-webpack-plugin</a>配置</p><ul><li>类型：<code>object</code> or <code>array</code></li></ul><ul><li><p>filename</p><p><a href="https://www.npmjs.com/package/html-webpack-plugin" target="_blank" rel="noopener noreferrer">html-webpack-plugin</a>的filename配置</p><ul><li>类型：<code>string</code></li></ul></li><li><p>path</p><p><a href="https://www.npmjs.com/package/html-webpack-plugin" target="_blank" rel="noopener noreferrer">html-webpack-plugin</a>的template配置</p><ul><li>类型：<code>string</code></li></ul></li><li><p>excludeChunks</p><p><a href="https://www.npmjs.com/package/html-webpack-plugin" target="_blank" rel="noopener noreferrer">html-webpack-plugin</a>的excludeChunks配置</p><ul><li>类型：<code>array</code></li></ul><p><strong>提示：</strong> 该属性只有在<code>template</code>为<code>array</code>类型时候才会起作用</p></li></ul></li></ul><h2 id="white"><a href="#white" aria-hidden="true" class="header-anchor">#</a> white</h2><p>白名单，使用<a href="https://www.npmjs.com/package/copy-webpack-plugin" target="_blank" rel="noopener noreferrer">copy-webpack-plugin</a>实现</p><ul><li>类型：<code>object</code></li></ul><ul><li><p>patterns</p><p>要配置的白名单列表，<a href="https://www.npmjs.com/package/copy-webpack-plugin" target="_blank" rel="noopener noreferrer">copy-webpack-plugin</a>中的第一个参数</p><ul><li>类型：<code>array</code></li></ul></li><li><p>rules</p><p>白名单规则，<a href="https://www.npmjs.com/package/copy-webpack-plugin" target="_blank" rel="noopener noreferrer">copy-webpack-plugin</a>中的第二参数</p><ul><li>类型：<code>object</code></li></ul></li></ul><h2 id="mode"><a href="#mode" aria-hidden="true" class="header-anchor">#</a> mode</h2><p>项目应用类型，在<code>vue/ssr/multiple/spa</code>中的一个</p><ul><li>类型：<code>string</code></li></ul><h2 id="env"><a href="#env" aria-hidden="true" class="header-anchor">#</a> env</h2><p>环境变量, dev、test、prod</p><ul><li>类型：<code>string</code></li><li>默认：‘dev’</li></ul><h2 id="alias"><a href="#alias" aria-hidden="true" class="header-anchor">#</a> alias</h2><p>webpack的alias</p><ul><li>类型：<code>object</code></li></ul><h2 id="extensions"><a href="#extensions" aria-hidden="true" class="header-anchor">#</a> extensions</h2><p>webpack的extensions</p><ul><li>类型：<code>array</code></li></ul></div><!----><div class="content page-nav"><p class="inner"><!----><span class="next"><a href="/config/dev.html">
+          开发环境配置
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/14.d32d9da7.js" defer></script><script src="/assets/js/app.85822044.js" defer></script>
+  </body>
+</html>

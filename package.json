@@ -1,0 +1,16 @@
+{
+  "name": "flow-doc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "publish": "scp -r docs/.vuepress/dist/* root@192.168.217.69:/root/www/flow-doc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vuepress": "^0.4.0"
+  }
+}

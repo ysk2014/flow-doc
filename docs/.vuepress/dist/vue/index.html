@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>前端工作流文档 | vue 解决方案</title>
+    <meta name="description" content="基于 Webpack 零配置的前端工作流生态">
+    
+    <link rel="preload" href="/assets/css/16.styles.be755a89.css" as="style"><link rel="preload" href="/assets/js/app.85822044.js" as="script"><link rel="preload" href="/assets/js/4.31e4b891.js" as="script"><link rel="prefetch" href="/assets/js/9.953c3114.js"><link rel="prefetch" href="/assets/js/1.3f3d84f9.js"><link rel="prefetch" href="/assets/js/2.d290042a.js"><link rel="prefetch" href="/assets/js/3.57f1c35b.js"><link rel="prefetch" href="/assets/js/5.948cdbcc.js"><link rel="prefetch" href="/assets/js/6.50890080.js"><link rel="prefetch" href="/assets/js/7.6413cbdb.js"><link rel="prefetch" href="/assets/js/8.f88c666a.js"><link rel="prefetch" href="/assets/js/0.1353bd93.js"><link rel="prefetch" href="/assets/js/10.5d36f963.js"><link rel="prefetch" href="/assets/js/11.4824266f.js"><link rel="prefetch" href="/assets/js/12.36cbe908.js"><link rel="prefetch" href="/assets/js/13.a73e423f.js"><link rel="prefetch" href="/assets/js/14.d32d9da7.js"><link rel="prefetch" href="/assets/js/15.83d4f0b3.js">
+    <link rel="stylesheet" href="/assets/css/16.styles.be755a89.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="router-link-active"><!----><span class="site-name">
+      前端工作流文档
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><a href="/guide/">
+      指南
+    </a><a href="/config/">
+      配置
+    </a><a href="/vue/" class="router-link-exact-active router-link-active">
+      vue
+    </a><a href="/vuessr/">
+      vuessr
+    </a><!----></nav></div></header><div class="sidebar"><nav class="nav-links"><a href="/guide/">
+      指南
+    </a><a href="/config/">
+      配置
+    </a><a href="/vue/" class="router-link-exact-active router-link-active">
+      vue
+    </a><a href="/vuessr/">
+      vuessr
+    </a><!----></nav><ul class="sidebar-links"><li><a href="/vue/" class="active sidebar-link">vue 解决方案</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue/#vue-解决方案" class="sidebar-link">vue 解决方案</a></li><li class="sidebar-sub-header"><a href="/vue/#安装" class="sidebar-link">安装</a></li><li class="sidebar-sub-header"><a href="/vue/#alias" class="sidebar-link">alias</a></li></ul></li></ul></div><div class="page"><div class="content"><h2 id="vue-解决方案"><a href="#vue-解决方案" aria-hidden="true" class="header-anchor">#</a> vue 解决方案</h2><p><code>flow-vue-hook</code>是基于<code>flow-build</code>创建的<code>hook</code>插件，目的在于解决<code>vue</code>前端开发的需求。<code>flow-vue-hook</code>整合了<code>vue-loader</code>及其相关的配置，提供了默认的配置。</p><div class="tip custom-block"><p class="custom-block-title">提示</p><p><code>flow-vue-hook</code>并非唯一vue的解决方法。</p><p>开发者可以根据自己的需求，重写个hook插件也可，具体创建<code>hook</code>的方法请查看<a href="/config/hooks.html">hook配置</a>。</p></div><h2 id="安装"><a href="#安装" aria-hidden="true" class="header-anchor">#</a> 安装</h2><pre class="language-js"><code>npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev @local<span class="token operator">/</span>flow<span class="token operator">-</span>vue<span class="token operator">-</span>hook
+</code></pre><h3 id="flow-config-js配置文件"><a href="#flow-config-js配置文件" aria-hidden="true" class="header-anchor">#</a> flow.config.js配置文件</h3><pre class="language-js"><code><span class="token keyword">let</span> VueHook <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;@local/flow-vue-hook&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token punctuation">.</span>
+    hooks<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">VueHook</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="alias"><a href="#alias" aria-hidden="true" class="header-anchor">#</a> alias</h2><p><code>flow-vue-hook</code>默认会在webpack中设置别名</p><pre class="language-js"><code>base<span class="token punctuation">.</span><span class="token function">setAlias</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">&quot;@&quot;</span><span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span>options<span class="token punctuation">.</span>srcDir<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//源码目录</span>
+    <span class="token string">&quot;vue$&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;vue/dist/vue.esm.js&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><!----><!----></div></div></div>
+    <script src="/assets/js/4.31e4b891.js" defer></script><script src="/assets/js/app.85822044.js" defer></script>
+  </body>
+</html>
